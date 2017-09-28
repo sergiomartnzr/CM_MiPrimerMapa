@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface Home : UIViewController
+@interface Home : UIViewController<CLLocationManagerDelegate>
+@property (strong, nonatomic)   CLLocationManager   *locationManager;
+@property (strong, nonatomic)   CLLocation          *location;
+@property (strong, nonatomic) IBOutlet UILabel *lblCountry;
+@property (strong, nonatomic) IBOutlet UILabel *lblName;
 
 
 @end
