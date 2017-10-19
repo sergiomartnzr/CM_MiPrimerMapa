@@ -70,7 +70,7 @@ NSMutableArray          *maPlacesLng;
     [mapView removeFromSuperview];
     camera                      = [GMSCameraPosition cameraWithLatitude:mlatitude longitude:mlongitude zoom:14.0];
     mapView                     = [GMSMapView mapWithFrame:CGRectZero camera:camera];
-    mapView.frame               = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-60);
+    mapView.frame               = CGRectMake(0, 200, self.view.frame.size.width, self.view.frame.size.height-200);
     mapView.myLocationEnabled   = YES;
     
     [self.view addSubview:mapView];
@@ -80,6 +80,7 @@ NSMutableArray          *maPlacesLng;
 //------------------------------------------------------------
 - (void) paintMarker {
     GMSMarker *marker       = [[GMSMarker alloc] init];
+    markerLocation.icon             = [GMSMarker markerImageWithColor:[UIColor blueColor]];
     marker.position         = camera.target;
     marker.title            = @"UAG";
     marker.snippet          = @"Clase de Maestría";
@@ -95,7 +96,7 @@ NSMutableArray          *maPlacesLng;
         NSLog(@"Marker lat %f, long %f", lat, lng);
         position                        = CLLocationCoordinate2DMake(lat, lng);
         markerLocation                  = [GMSMarker markerWithPosition:position];
-        markerLocation.icon             = [GMSMarker markerImageWithColor:[UIColor greenColor]];
+        markerLocation.icon             = [GMSMarker markerImageWithColor:[UIColor blueColor]];
         markerLocation.title            = maPlacesTitle[i];
         markerLocation.snippet          = maPlacesSnippet[i];
         markerLocation.appearAnimation  = kGMSMarkerAnimationPop;
